@@ -20,10 +20,10 @@ A data transfer object representing the basic response for each entity type is p
 
 The focus of this assignment is on creating endpoints and implementing their functionality in the provided Controller, Service, and Repositories. Note that there is a repository for each table in the database, but there is only 1 controller and 1 service which should handle all the endpoints below. The `Get /quiz` endpoint is implemented for you as an example for you to follow while implemented the other 6.
 
-- [ ] `GET quiz`
+- [x] `GET quiz`
     - Returns the collection of `Quiz` elements
 
-- [ ] `POST quiz`
+- [x] `POST quiz`
     Creates a quiz and adds to collection
     - Returns the `Quiz` that it created
 
@@ -31,7 +31,7 @@ The focus of this assignment is on creating endpoints and implementing their fun
     Deletes the specified quiz from collection
     - Returns the deleted `Quiz`
 
-- [ ] `PATCH quiz/{id}/rename/{newName}`
+- [x] `PATCH quiz/{id}/rename/{newName}`
     Rename the specified quiz using the new name given
     - Returns the renamed `Quiz`
 
@@ -43,6 +43,6 @@ The focus of this assignment is on creating endpoints and implementing their fun
     - Receives a `Question`
     - Returns the modified `Quiz`
     
-- [ ] `DELETE quiz/{id}/delete/{questionID}`
+- [x] `DELETE quiz/{id}/delete/{questionID}`
     Deletes the specified question from the specified quiz
     - Returns the deleted `Question`
