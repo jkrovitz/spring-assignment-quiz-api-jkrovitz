@@ -38,7 +38,7 @@ The focus of this assignment is on creating endpoints and implementing their fun
 - [x] `GET quiz/{id}/random`
     - Returns a random `Question` from the specified quiz
 
-- [ ] `PATCH quiz/{id}/add`
+- [x] `PATCH quiz/{id}/add`
     Adds a question to the specified quiz
     - Receives a `Question`
     - Returns the modified `Quiz`

@@ -12,7 +12,7 @@ import com.cooksys.quiz_api.exceptions.BadRequestException;
 import com.cooksys.quiz_api.exceptions.NotFoundException;
 import com.cooksys.quiz_api.dtos.ErrorDto;
 
-@ControllerAdvice(basePackages = {"com.cooksys.lemonadestand.controllers"})
+@ControllerAdvice(basePackages = {"com.cooksys.quiz_api.controllers"})
 @ResponseBody
 public class QuizControllerAdvice {
 
