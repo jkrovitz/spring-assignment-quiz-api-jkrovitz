@@ -40,34 +40,28 @@ public class QuizController {
 		return quizService.createQuiz(quizRequestDto);
 	}
 
-	@GetMapping("/{id}")
-	public QuizResponseDto getQuizById(@PathVariable Long id) {
-		return quizService.getQuizById(id);
+	@DeleteMapping("/{id}")
+	public QuizResponseDto deleteQuiz(@PathVariable Long id) {
+		return quizService.deleteQuiz(id);
 	}
-	
-    @DeleteMapping("/{id}")
-    public QuizResponseDto deleteQuiz(@PathVariable Long id) {
-        return quizService.deleteQuiz(id);
-    }
 
-	
-    @GetMapping("/{id}/random")
-    public QuestionResponseDto getRandomQuestion(@PathVariable Long id) {
-        return quizService.getRandomQuestion(id);
-    }
-	
 	@PatchMapping("/{id}/rename/{name}")
-    public QuizResponseDto patchQuiz(@PathVariable Long id, @PathVariable String name) {
-        return quizService.patchQuiz(id, name);
-    }
-	
-    @PatchMapping("/{id}/add")
-    public QuizResponseDto patchQuestionAdd(@PathVariable Long id, @RequestBody Question question) {
-        return quizService.patchQuestionAdd(id, question);
-    }
-	
+	public QuizResponseDto patchQuiz(@PathVariable Long id, @PathVariable String name) {
+		return quizService.patchQuiz(id, name);
+	}
+
+	@GetMapping("/{id}/random")
+	public QuestionResponseDto getRandomQuestion(@PathVariable Long id) {
+		return quizService.getRandomQuestion(id);
+	}
+
+	@PatchMapping("/{id}/add")
+	public QuizResponseDto patchQuestionAdd(@PathVariable Long id, @RequestBody Question question) {
+		return quizService.patchQuestionAdd(id, question);
+	}
+
 	@DeleteMapping("/{id}/delete/{questionID}")
-    public QuestionResponseDto deleteQuestion(@PathVariable Long id, @PathVariable Long questionID) {
-        return quizService.deleteQuestion(id, questionID);
-    }
+	public QuestionResponseDto deleteQuestion(@PathVariable Long id, @PathVariable Long questionID) {
+		return quizService.deleteQuestion(id, questionID);
+	}
 }

@@ -11,10 +11,10 @@ import com.cooksys.quiz_api.entities.Answer;
 @Mapper(componentModel = "spring")
 public interface AnswerMapper {
 
-  AnswerResponseDto entityToDto(Answer entity);
-  
-  Answer dtoToEntity(AnswerRequestDto answerRequestDto);
+	AnswerResponseDto entityToDto(Answer entity);
 
-  List<AnswerResponseDto> entitiesToDtos(List<Answer> entities);
+	Answer dtoToEntity(AnswerRequestDto answerRequestDto);
+
+	List<AnswerResponseDto> entitiesToDtos(List<Answer> entities);
 
 }

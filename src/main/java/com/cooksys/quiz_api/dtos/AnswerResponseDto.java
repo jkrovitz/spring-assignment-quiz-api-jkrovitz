@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class AnswerResponseDto {
 
-  private Long id;
+	private Long id;
 
-  private String text;
+	private String text;
 
 }

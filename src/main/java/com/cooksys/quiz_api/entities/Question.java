@@ -17,17 +17,17 @@ import lombok.NoArgsConstructor;
 @Data
 public class Question {
 
-  @Id
-  @GeneratedValue
-  private Long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 
-  private String text;
+	private String text;
 
-  @ManyToOne
-  @JoinColumn(name = "quiz_id")
-  private Quiz quiz;
+	@ManyToOne
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;
 
-  @OneToMany(mappedBy = "question")
-  private List<Answer> answers;
+	@OneToMany(mappedBy = "question")
+	private List<Answer> answers;
 
 }

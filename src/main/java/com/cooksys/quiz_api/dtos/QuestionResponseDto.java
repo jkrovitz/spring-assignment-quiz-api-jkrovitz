@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class QuestionResponseDto {
 
-  private Long id;
+	private Long id;
 
-  private String text;
+	private String text;
 
-  private List<AnswerResponseDto> answers;
+	private List<AnswerResponseDto> answers;
 
 }

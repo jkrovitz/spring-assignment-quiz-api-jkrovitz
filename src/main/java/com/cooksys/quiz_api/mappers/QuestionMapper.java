@@ -11,9 +11,9 @@ import com.cooksys.quiz_api.entities.Question;
 @Mapper(componentModel = "spring", uses = { AnswerMapper.class })
 public interface QuestionMapper {
 
-  QuestionResponseDto entityToDto(Question entity);
-  
-  Question dtoToEntity(QuestionRequestDto questionRequestDto);
+	QuestionResponseDto entityToDto(Question entity);
 
-  List<QuestionResponseDto> entitiesToDtos(List<Question> entities);
+	Question dtoToEntity(QuestionRequestDto questionRequestDto);
+
+	List<QuestionResponseDto> entitiesToDtos(List<Question> entities);
 }
