@@ -40,14 +40,6 @@ public class QuizServiceImpl implements QuizService {
 		return optionalQuiz.get();
 	}
 
-	private Question getQuestion(Long id) {
-		Optional<Question> optionalQuestion = questionRepository.findById(id);
-		if (optionalQuestion.isEmpty()) {
-			throw new NotFoundException("No question found with id " + id);
-		}
-		return optionalQuestion.get();
-	}
-
 	@Override
 	public List<QuizResponseDto> getAllQuizzes() {
 		return quizMapper.entitiesToDtos(quizRepository.findAll());
@@ -110,13 +102,24 @@ public class QuizServiceImpl implements QuizService {
 		quizRepository.save(quiz);
 		return quizMapper.entityToDto(quiz);
 	}
-	
+
 	@Override
 	public QuestionResponseDto deleteQuestion(Long id, Long questionId) {
-		Question question = getQuestion(questionId);
-		answerRepository.deleteAll(question.getAnswers());
-		questionRepository.delete(question);
-		return questionMapper.entityToDto(question);
+		Quiz quiz = getQuiz(id);
+		boolean question_deleted = false;
+		Question q = new Question();
+		for (Question question : quiz.getQuestions()) {
+			if (question == questionRepository.getById(questionId)) {
+				answerRepository.deleteAll(question.getAnswers());
+				q = question;
+				questionRepository.delete(question);
+				question_deleted = true;
+			}
+		}
+		if (question_deleted == false) {
+			throw new NotFoundException("The Question with id " + questionId + " is not in quiz " + id + ".");
+		}
+		return questionMapper.entityToDto(q);
 	}
 
 }
