@@ -45,10 +45,11 @@ public class QuizController {
 		return quizService.getQuizById(id);
 	}
 	
-	@DeleteMapping("/id")
-	public QuizResponseDto deleteQuiz(@PathVariable Long id) {
-		return quizService.deleteQuiz(id);
-	}
+    @DeleteMapping("/{id}")
+    public QuizResponseDto deleteQuiz(@PathVariable Long id) {
+        return quizService.deleteQuiz(id);
+    }
+
 	
     @GetMapping("/{id}/random")
     public QuestionResponseDto getRandomQuestion(@PathVariable Long id) {

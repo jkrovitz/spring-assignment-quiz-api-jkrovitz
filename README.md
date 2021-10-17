@@ -27,7 +27,7 @@ The focus of this assignment is on creating endpoints and implementing their fun
     Creates a quiz and adds to collection
     - Returns the `Quiz` that it created
 
-- [ ] `DELETE quiz/{id}`
+- [x] `DELETE quiz/{id}`
     Deletes the specified quiz from collection
     - Returns the deleted `Quiz`
 
