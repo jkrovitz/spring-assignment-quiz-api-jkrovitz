@@ -50,9 +50,9 @@ public class QuizController {
 		return quizService.deleteQuiz(id);
 	}
 	
-    @GetMapping("/{name}/random")
-    public QuestionResponseDto getRandomQuestion(@PathVariable String name) {
-        return quizService.getRandomQuestion(name);
+    @GetMapping("/{id}/random")
+    public QuestionResponseDto getRandomQuestion(@PathVariable Long id) {
+        return quizService.getRandomQuestion(id);
     }
 	
 	@PatchMapping("/{id}/rename/{name}")

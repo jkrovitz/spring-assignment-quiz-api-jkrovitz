@@ -51,7 +51,7 @@ public class QuizServiceImpl implements QuizService {
 	private Quiz getQuiz(Long id) {
 		Optional<Quiz> optionalQuiz = quizRepository.findById(id);
 		if (optionalQuiz.isEmpty()) {
-			throw new NotFoundException("No quiz found with id" + id);
+			throw new NotFoundException("No quiza found with id" + id);
 		}
 		return optionalQuiz.get();
 	}
@@ -83,10 +83,12 @@ public class QuizServiceImpl implements QuizService {
 		return quizMapper.entityToDto(getQuiz(id));
 	}
 	
-	 @Override
-	    public QuestionResponseDto getRandomQuestion(String name) {
-	        Quiz quiz = quizRepository.findByName(name);
-	        if (quiz != null) {
+	
+	    @Override
+	    public QuestionResponseDto getRandomQuestion(Long id) {
+	        Optional<Quiz> optionalQuiz = quizRepository.findById(id);
+	        Quiz quiz = optionalQuiz.get();
+	        if (optionalQuiz != null) {
 	            Random rand = new Random();
 	            int r = rand.nextInt(quiz.getQuestions().size());
 	            System.out.println("my quiz size is " + quiz.getQuestions().size());
@@ -97,20 +99,45 @@ public class QuizServiceImpl implements QuizService {
 	        return null;
 	    }
 
+//	    public QuestionResponseDto getRandomQuestion(Long id) {
+////	        Quiz quiz = quizRepository.findByName(name);
+////	        if (quiz != null) {
+////	            Random rand = new Random();
+////	            int r = rand.nextInt(quiz.getQuestions().size());
+////	            System.out.println("my quiz size is " + quiz.getQuestions().size());
+////	            System.out.println("my random number was " + r);
+////	            Question randomQuestion = quiz.getQuestions().get(r);
+////	            return questionMapper.entityToDto(randomQuestion);
+////	        }
+//		 	Quiz quiz = quizRepository.findByQuizId(id);
+////		 	if (quiz != null) {
+//		 		
+//		 		List<Question> questionList = new ArrayList<Question>();
+//		 		questionList = quiz.getQuestions();
+//		 		Random random = new Random();
+//		 		return questionMapper.entityToDto(questionList.get(random.nextInt(questionList.size())));
+//////		 		}
+////		 	}
+////	        return null;
+//	    }
+	 
+	 
+	 
+
 	    @Override
 	    public QuizResponseDto deleteQuiz(Long id) {
 	        Optional<Quiz> quizresponse = quizRepository.findById(id);
-
-	        if (quizresponse.isPresent()) {
-	            Quiz quiz = quizresponse.get();
+	        Quiz quiz = quizresponse.get();
+//	        if (quizresponse.isPresent()) {
+//	            Quiz quiz = quizresponse.get();
 	            for (Question question : quiz.getQuestions()) {
 	                answerRepository.deleteAll(question.getAnswers());
 	            }
 	            questionRepository.deleteAll(quiz.getQuestions());
 	            quizRepository.delete(quiz);
 	            return quizMapper.entityToDto(quiz);
-	        }
-	        return null;
+//	        }
+	        
 	    }
 
 	    @Override

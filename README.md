@@ -35,7 +35,7 @@ The focus of this assignment is on creating endpoints and implementing their fun
     Rename the specified quiz using the new name given
     - Returns the renamed `Quiz`
 
-- [ ] `GET quiz/{id}/random`
+- [x] `GET quiz/{id}/random`
     - Returns a random `Question` from the specified quiz
 
 - [ ] `PATCH quiz/{id}/add`
